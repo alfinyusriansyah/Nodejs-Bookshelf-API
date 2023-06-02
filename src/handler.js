@@ -60,14 +60,16 @@ const addBookHandler =  (request, h) => {
       return response;
 };
 
-// ------------------ Display all book ----------------------------
+// ------------------ get all book ----------------------------
 
 const getAllBookHandler = () => {
+
   const booksList = books.map((book) => ({
     id: book.id,
     name: book.name,
     publisher: book.publisher,
   }));
+
 
   return {
     status: 'success',
@@ -75,6 +77,7 @@ const getAllBookHandler = () => {
        books: booksList.slice(0,2)
     }
 }
+
 }
 
 // ------------------ Get Detail Book ----------------------------
@@ -153,6 +156,7 @@ const updateBookHandler = (request, h) => {
     return response;
   } 
 
+// ------------------ Delete Book ----------------------------
 
 const DeleteBooksHandler = (request, h) => {
   const { id } = request.params;
@@ -176,7 +180,7 @@ const DeleteBooksHandler = (request, h) => {
   return response;
 }
 
-
+// ------------------ Get All finish Book (Optional) ----------------------------
 
 module.exports = { addBookHandler, getAllBookHandler, 
   getDetailBookHandler, updateBookHandler, DeleteBooksHandler };
